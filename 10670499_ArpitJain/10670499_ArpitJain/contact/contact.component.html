@@ -1,0 +1,78 @@
+<div class="div123" style="position: absolute; ">
+    
+    <i class="fa fa-address-book" style="margin-left: 30px; font-size: 2em;"></i> &nbsp; <strong><em>Contacts</em></strong>
+  <div style="margin-top: 30px;">
+  
+  <section class="addrelative"><strong>&nbsp;</strong> <button style = "margin-left: 30px;" (click)="showpopup()" class="btn btn-primary">+ Add Contact</button></section>
+  </div>
+  <br/>
+  <div class="search" style="margin-top:50px;">
+      <span class="fa fa-search"></span>
+      <input placeholder="Search here" [(ngModel)]="searchbox" style="width:272px;" #searchname>
+      <button style=" margin-top: 3px; margin-left: 5px;" (click)="search()">Find</button> <button style="position: relative; margin-top: 3px; margin-left: 280px;" (click)="sortarray()">Sort </button>
+  </div>
+  <div class="form-control" (click)="updatepopup(c)" style="height:60px; margin-top:7px; margin-bottom: 10px; position: relative;" *ngFor= "let c of contactlist">
+    <button class="btn btn-danger glyphicon glyphicon-trash" style="height:30px; position: absolute; margin-left: 160px; margin-top: 8px;" (click)="deletefromlist(c)">Delete</button>
+    {{c.firstName}}  
+    {{c.secondName}}
+    <strong>&nbsp;</strong>
+    {{c.phone}}
+  </div>
+  </div>
+
+
+
+  <div class="addcomponents" style="position: relative;"  *ngIf="updating">
+    <span class="glyphicon glyphicon-remove" (click)="hideupdate()" style="margin-left: 80%;"></span>
+
+    <input type="text" class="form-control" style="margin-left: -80%;" required [(ngModel)]="contact.firstName" #fname=ngModel>
+    <p class="alert alert-danger" *ngIf="fname.touched && fname.invalid">
+      <span class="alert alert-danger" *ngIf="fname.errors.required">Cannot Be empty</span>
+    </p>
+
+    <input type="text" class="form-control" required [(ngModel)]="contact.secondName" #sname=ngModel >
+    <p class="alert alert-danger" *ngIf="sname.touched && sname.invalid">
+      <span class="alert alert-danger" *ngIf="sname.errors.required">Name Cannot Be empty</span>
+    </p>
+
+    <input type ="number" class="form-control" required #pnum=ngModel [(ngModel)]="contact.phone">
+    <p class="alert alert-danger" *ngIf="pnum.touched && pnum.invalid">
+      <span class="alert alert-danger" *ngIf="pnum.errors.required">Cannot Be empty</span>
+    </p> 
+    <br/>
+    <button class="btn btn-success" style="margin-top: 8px; margin-bottom: 10px;" (click)="updatecontact(fname, sname, pnum)">Update</button>
+  </div>
+
+
+
+
+
+
+  
+  <div *ngIf="showinsert" class="addcomponents">
+    <span class="glyphicon glyphicon-remove" (click)="insert()" style="margin-left: 80%;"></span>
+
+    <form class="form-container" [formGroup]="myForm" >
+
+    <input type="text" class="form-control" #fname placeholder="First name" formControlName="firstName" >
+    <section class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid">
+      <span class="alert alert-danger" *ngIf="firstName.errors.required">Name Cannot Be empty</span>      
+    </section>
+    <br/>
+    <br/>
+    <input type="text" class="form-control" #sname placeholder="Second name"formControlName="secondName">
+    <section class="alert alert-danger" *ngIf="secondName.touched && secondName.invalid">
+      <span class="alert alert-danger" *ngIf="secondName.errors.required">Name Cannot Be empty</span>
+    </section>
+    <br/>
+    <br/>    
+    <input type ="number" class="form-control" #pnum placeholder="phone number" formControlName="phone">
+    <section class="alert alert-danger" *ngIf="phone.touched && phone.invalid">
+      <span class="alert alert-danger" *ngIf="phone.errors.required">Cannot Be empty</span>
+    </section>
+    <br/>
+    <br/>
+    <button type="button" style="margin-bottom: 50px;" (click)="addtocontact()" class="btn btn-success">Add Contact</button>
+    &nbsp;&nbsp;&nbsp;<button type="reset" style="margin-bottom: 5px;" class="btn btn-primary" >Reset</button>
+      </form>
+  </div> 

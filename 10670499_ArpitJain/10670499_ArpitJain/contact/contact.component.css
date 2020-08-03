@@ -1,0 +1,82 @@
+.div123{
+    background-color: #d0e0dd;
+    margin-left: 35%;
+    width: 400px;
+    height: 100%;
+    text-align: center;
+    
+}
+.addrelative
+{
+    position: relative;
+    text-align: center;
+}
+.addcomponents
+{ 
+  width: 300px;  
+  margin-left: 600px; 
+  margin-top: 0px;
+  position: absolute;
+  border: rgb(170, 204, 224); 
+  border-style: solid;
+  border-radius: 5px; 
+  background-color: rgb(204, 240, 232);
+  border-width: 1px;
+  padding: 16px 8px 8px; 
+  box-sizing: border-box; 
+  
+}
+
+  
+.form-control + .glyphicon 
+{
+    position: absolute;
+    right: 0;
+    height: 1000px;
+    padding: 8px 27px;
+}
+
+body 
+{
+     margin: 30px; 
+}
+
+
+.search {
+  position: relative;
+  color: rgb(160, 142, 142);
+  font-size: 30px;
+}
+
+.search input
+{
+  width: 250px;
+  height: 32px;
+
+  background: #fffefe;
+  border: 1px solid rgb(110, 109, 109);
+  text-indent: 32px;
+  
+  
+}
+
+.search input 
+{
+    text-indent: 32px;
+    
+}
+.search .fa-search { 
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.header{
+    background-color:white;
+    border-radius:30%;
+}
+.bordering{
+    margin-left: 200px;
+}
+.form-control {
+    padding-right: 30px;
+  }
